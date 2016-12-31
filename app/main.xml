@@ -1,4 +1,4 @@
-<Page loaded="onLoaded">
+<Page loaded="onLoaded" class="page">
   <StackLayout>
     <StackLayout>
       <Label text="Mana Base Calculator" class="h2 text-center" />
@@ -6,35 +6,61 @@
     <StackLayout class="form">
       <StackLayout class="input-field"> 
         <Label text="Enter number of non-lands" class="label"/>
-        <TextField text="{{ nonLands }}" class="input"/>
+        <TextField text="{{ nonLands }}" class="input" keyboardType="phone" />
       </StackLayout>
-      <Label text="Cards per mana type (optional)" class="h4 text-center" />
-      <StackLayout orientation="horizontal" class="text-center m-l-30">
+      <Label text="cards per mana type (optional)" class="text-muted text-center" />
+      <StackLayout orientation="horizontal" class="m-l-30">
         <StackLayout class="input-field">
           <Image src="~/images/black.png" height="40" class="label" />
-          <TextField class="input input-border" />
+          <TextField class="input input-border" text="{{ black }}" keyboardType="phone" />
         </StackLayout>
          <StackLayout class="input-field">
           <Image src="~/images/blue.png" height="40" class="label" />
-          <TextField class="input input-border" />
+          <TextField class="input input-border" text="{{ blue }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
           <Image src="~/images/white.png" height="40" class="label" />
-          <TextField class="input input-border" />
+          <TextField class="input input-border"  text="{{ white }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
           <Image src="~/images/green.png" height="40" class="label" />
-          <TextField class="input input-border" />
+          <TextField class="input input-border" text="{{ green }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
           <Image src="~/images/red.png" height="40" class="label" />
-          <TextField class="input input-border" />
+          <TextField class="input input-border" text="{{ red }}" keyboardType="phone" />
         </StackLayout>
       </StackLayout>
-      <Button text="Calculate" tap="{{ onTap }}" class="btn btn-primary" />
-      <Label text="{{ results }}" class="text-center"/>
+      <StackLayout class="hr-light"></StackLayout>
+      <StackLayout>
+        <Button text="Calculate" tap="{{ onTap }}" class="btn btn-primary" />
+        <Label text="{{ results }}" class="text-center"/>
+      </StackLayout>
+      <StackLayout class="m-t-30">
+        <Label text="detailed breakdown" class="text-muted text-center" />
+        <StackLayout orientation="horizontal" id="detailed" class="m-l-30">
+          <StackLayout class="input-field">
+              <Image src="~/images/black.png" height="40" />
+              <Label text="{{ resultsBlack }}" />
+          </StackLayout>
+          <StackLayout class="input-field">
+              <Image src="~/images/blue.png" height="40" />
+              <Label text="{{ resultsBlue }}" />
+          </StackLayout>
+          <StackLayout class="input-field">
+              <Image src="~/images/white.png" height="40" />
+              <Label text="{{ resultsWhite }}" />
+          </StackLayout>
+          <StackLayout class="input-field">
+              <Image src="~/images/green.png" height="40" />
+              <Label text="{{ resultsGreen }}" />
+          </StackLayout>
+          <StackLayout class="input-field">
+              <Image src="~/images/red.png" height="40" />
+              <Label text="{{ resultsRed }}" />
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
     </StackLayout>
-    <AbsoluteLayout id="imageLayout">
-    </AbsoluteLayout>
   </StackLayout>
 </Page>
