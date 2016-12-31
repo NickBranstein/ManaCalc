@@ -1,0 +1,40 @@
+<Page loaded="onLoaded">
+  <StackLayout>
+    <StackLayout>
+      <Label text="Mana Base Calculator" class="h2 text-center" />
+    </StackLayout>
+    <StackLayout class="form">
+      <StackLayout class="input-field"> 
+        <Label text="Enter number of non-lands" class="label"/>
+        <TextField text="{{ nonLands }}" class="input"/>
+      </StackLayout>
+      <Label text="Cards per mana type (optional)" class="h4 text-center" />
+      <StackLayout orientation="horizontal" class="text-center m-l-30">
+        <StackLayout class="input-field">
+          <Image src="~/images/black.png" height="40" class="label" />
+          <TextField class="input input-border" />
+        </StackLayout>
+         <StackLayout class="input-field">
+          <Image src="~/images/blue.png" height="40" class="label" />
+          <TextField class="input input-border" />
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Image src="~/images/white.png" height="40" class="label" />
+          <TextField class="input input-border" />
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Image src="~/images/green.png" height="40" class="label" />
+          <TextField class="input input-border" />
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Image src="~/images/red.png" height="40" class="label" />
+          <TextField class="input input-border" />
+        </StackLayout>
+      </StackLayout>
+      <Button text="Calculate" tap="{{ onTap }}" class="btn btn-primary" />
+      <Label text="{{ results }}" class="text-center"/>
+    </StackLayout>
+    <AbsoluteLayout id="imageLayout">
+    </AbsoluteLayout>
+  </StackLayout>
+</Page>
