@@ -1,19 +1,25 @@
-import {Observable, EventData} from 'data/observable';
-import { screen } from 'platform';
-import { Image } from 'ui/image';
+import { Observable, EventData } from 'data/observable';
+import * as view from 'ui/core/view';  
+import * as label from 'ui/label';  
 
 export class ManaCalc extends Observable {
   private total: number;
   private lands: number;
 
   constructor(private nonLands?: number, private results?: string, 
-    private black?: number, private blue?: number, private white?: number, private green?: number, private red?: number,
-    private resultsBlack?: string, private resultsBlue?: string, private resultsWhite?: string,
-    private resultsGreen?: string, private resultsRed?: string) {
-    super({nonLands, results, black, blue, white, green, red, resultsBlack, resultsBlue, resultsWhite, resultsGreen, resultsRed});
+      private black?: string, private blue?: string, private white?: string, private green?: string, private red?: string,
+      private resultsBlack?: string, private resultsBlue?: string, private resultsWhite?: string,
+      private resultsGreen?: string, private resultsRed?: string,
+      private validationVisibility?: string, private validationMessage?: string) {
+    super({
+      nonLands, results, black, blue, white, green, red,
+      resultsBlack, resultsBlue, resultsWhite, resultsGreen, resultsRed,
+      validationVisibility, validationMessage
+    });
 
     this.total = 0;
     this.lands = 0;
+    this.validationVisibility = 'collapsed';
   }
 
   public onTap(args: EventData) {
@@ -27,6 +33,14 @@ export class ManaCalc extends Observable {
 
     this.results = `You need ${this.lands.toFixed(2)} lands and ${this.total.toFixed(2)} total cards.`;
 
+    if ((parseInt(this.black) || 0) + (parseInt(this.blue) || 0) + (parseInt(this.white) || 0) +
+      (parseInt(this.green) || 0) + (parseInt(this.red) || 0) > this.nonLands) {
+      this.validationVisibility = 'visible';
+      this.validationMessage = `cards per type must equal ${this.nonLands}`;
+    } else {
+      this.validationVisibility = 'collapsed';
+    }
+
     this.resultsBlack = this.calcLandPercentage(this.black);
     this.resultsBlue = this.calcLandPercentage(this.blue);
     this.resultsWhite = this.calcLandPercentage(this.white);
@@ -34,7 +48,7 @@ export class ManaCalc extends Observable {
     this.resultsRed = this.calcLandPercentage(this.red);
   }
 
-  private calcLandPercentage(land?: number): string {
-    return land != null ? (this.lands * (land / this.nonLands)).toFixed(2) : '';
+  private calcLandPercentage(land: string): string {
+    return (this.lands * ((parseInt(land) || 0) / this.nonLands)).toFixed(2);
   }
 }
