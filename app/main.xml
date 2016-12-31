@@ -32,12 +32,12 @@
         </StackLayout>
       </StackLayout>
       <Label text="{{ validationMessage }}" class="label text-center text-danger" id="validation" visibility="{{ validationVisibility }}"/>
-      <StackLayout class="hr-light"></StackLayout>
       <StackLayout>
         <Button text="Calculate" tap="{{ onTap }}" class="btn btn-primary" />
+        <StackLayout class="hr-light"></StackLayout>
         <Label text="{{ results }}" class="text-center"/>
       </StackLayout>
-      <StackLayout class="m-t-30" id="detailed">
+      <StackLayout class="m-t-30">
         <Label text="detailed breakdown" class="text-muted text-center" />
         <StackLayout orientation="horizontal" class="m-l-30">
           <StackLayout class="input-field">

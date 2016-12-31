@@ -40,7 +40,7 @@ export class ManaCalc extends Observable {
     this.results = `You need ${this.lands.toFixed(2)} lands and ${this.total.toFixed(2)} total cards.`;
 
     if ((parseInt(this.black) || 0) + (parseInt(this.blue) || 0) + (parseInt(this.white) || 0) +
-      (parseInt(this.green) || 0) + (parseInt(this.red) || 0) > this.nonLands) {
+      (parseInt(this.green) || 0) + (parseInt(this.red) || 0) != this.nonLands) {
       this.validationVisibility = 'visible';
       this.validationMessage = `cards per type must equal ${this.nonLands}`;
     } else {
