@@ -11,24 +11,24 @@
       <Label text="cards per mana type (optional)" class="text-muted text-center" />
       <StackLayout orientation="horizontal" class="m-l-30">
         <StackLayout class="input-field">
-          <Image src="~/images/black.png" height="40" class="label" />
-          <TextField class="input input-border" text="{{ black }}" keyboardType="phone" />
+          <Image src="~/images/black.png" height="40" class="label" id="b" opacity="{{ bActive ? 1.0 : 0.5 }}" tap="{{ onColorTap }}" />
+          <TextField class="input input-border" text="{{ black }}" visibility="{{ bActive ? 'visible' : 'collapsed' }}" keyboardType="phone" />
         </StackLayout>
          <StackLayout class="input-field">
-          <Image src="~/images/blue.png" height="40" class="label" />
-          <TextField class="input input-border" text="{{ blue }}" keyboardType="phone" />
+          <Image src="~/images/blue.png" height="40" class="label" id="u" opacity="{{ uActive ? 1.0 : 0.5 }}" tap="{{ onColorTap }}" />
+          <TextField class="input input-border" text="{{ blue }}" visibility="{{ uActive ? 'visible' : 'collapsed' }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
-          <Image src="~/images/white.png" height="40" class="label" />
-          <TextField class="input input-border"  text="{{ white }}" keyboardType="phone" />
+          <Image src="~/images/white.png" height="40" class="label" id="w" opacity="{{ wActive ? 1.0 : 0.5 }}" tap="{{ onColorTap }}" />
+          <TextField class="input input-border"  text="{{ white }}" visibility="{{ wActive ? 'visible' : 'collapsed' }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
-          <Image src="~/images/green.png" height="40" class="label" />
-          <TextField class="input input-border" text="{{ green }}" keyboardType="phone" />
+          <Image src="~/images/green.png" height="40" class="label" id="g" opacity="{{ gActive ? 1.0 : 0.5 }}" tap="{{ onColorTap }}" />
+          <TextField class="input input-border" text="{{ green }}" visibility="{{ gActive ? 'visible' : 'collapsed' }}" keyboardType="phone" />
         </StackLayout>
         <StackLayout class="input-field">
-          <Image src="~/images/red.png" height="40" class="label" />
-          <TextField class="input input-border" text="{{ red }}" keyboardType="phone" />
+          <Image src="~/images/red.png" height="40" class="label" id="r" opacity="{{ rActive ? 1.0 : 0.5 }}" tap="{{ onColorTap }}" />
+          <TextField class="input input-border" text="{{ red }}" visibility="{{ rActive ? 'visible' : 'collapsed' }}" keyboardType="phone" />
         </StackLayout>
       </StackLayout>
       <Label text="{{ validationMessage }}" class="label text-center text-danger" id="validation" visibility="{{ validationVisibility }}"/>
@@ -41,24 +41,24 @@
         <Label text="detailed breakdown" class="text-muted text-center" />
         <StackLayout orientation="horizontal" class="m-l-30">
           <StackLayout class="input-field">
-              <Image src="~/images/black.png" height="40" />
-              <Label text="{{ resultsBlack }}" />
+              <Image src="~/images/black.png" height="40" opacity="{{ bActive ? 1.0 : 0.5 }}" />
+              <Label text="{{ resultsBlack }}" visibility="{{ bActive ? 'visible' : 'collapsed' }}" />
           </StackLayout>
           <StackLayout class="input-field">
-              <Image src="~/images/blue.png" height="40" />
-              <Label text="{{ resultsBlue }}" />
+              <Image src="~/images/blue.png" height="40" opacity="{{ uActive ? 1.0 : 0.5 }}" />
+              <Label text="{{ resultsBlue }}" visibility="{{ uActive ? 'visible' : 'collapsed' }}" />
           </StackLayout>
           <StackLayout class="input-field">
-              <Image src="~/images/white.png" height="40" />
-              <Label text="{{ resultsWhite }}" />
+              <Image src="~/images/white.png" height="40" opacity="{{ wActive ? 1.0 : 0.5 }}" />
+              <Label text="{{ resultsWhite }}" visibility="{{ wActive ? 'visible' : 'collapsed' }}" />
           </StackLayout>
           <StackLayout class="input-field">
-              <Image src="~/images/green.png" height="40" />
-              <Label text="{{ resultsGreen }}" />
+              <Image src="~/images/green.png" height="40" opacity="{{ gActive ? 1.0 : 0.5 }}" />
+              <Label text="{{ resultsGreen }}" visibility="{{ gActive ? 'visible' : 'collapsed' }}" />
           </StackLayout>
           <StackLayout class="input-field">
-              <Image src="~/images/red.png" height="40" />
-              <Label text="{{ resultsRed }}" />
+              <Image src="~/images/red.png" height="40" opacity="{{ rActive ? 1.0 : 0.5 }}" />
+              <Label text="{{ resultsRed }}" visibility="{{ rActive ? 'visible' : 'collapsed' }}" />
           </StackLayout>
         </StackLayout>
       </StackLayout>

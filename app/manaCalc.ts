@@ -2,6 +2,10 @@ import { Observable, EventData } from 'data/observable';
 import * as view from 'ui/core/view';  
 import * as label from 'ui/label';  
 
+export class ActiveImage extends Observable {
+  public id: string;
+}
+
 export class ManaCalc extends Observable {
   private total: number;
   private lands: number;
@@ -10,16 +14,18 @@ export class ManaCalc extends Observable {
       private black?: string, private blue?: string, private white?: string, private green?: string, private red?: string,
       private resultsBlack?: string, private resultsBlue?: string, private resultsWhite?: string,
       private resultsGreen?: string, private resultsRed?: string,
-      private validationVisibility?: string, private validationMessage?: string) {
+      private validationVisibility?: string, private validationMessage?: string,
+      private bActive?: boolean, private uActive?: boolean, private wActive?: boolean, private gActive?: boolean, private rActive?: boolean) {
     super({
       nonLands, results, black, blue, white, green, red,
       resultsBlack, resultsBlue, resultsWhite, resultsGreen, resultsRed,
-      validationVisibility, validationMessage
+      validationVisibility, validationMessage, bActive, uActive, wActive, gActive, rActive
     });
 
     this.total = 0;
     this.lands = 0;
     this.validationVisibility = 'collapsed';
+    this.bActive = this.uActive = this.wActive = this.gActive = this.rActive = true;
   }
 
   public onTap(args: EventData) {
@@ -48,6 +54,18 @@ export class ManaCalc extends Observable {
     this.resultsRed = this.calcLandPercentage(this.red);
   }
 
+  public onColorTap(args: EventData) {
+    let image = args.object as ActiveImage;
+    
+    switch (image.id) {
+      case 'b': this.bActive = !this.bActive; break;
+      case 'u': this.uActive = !this.uActive; break;
+      case 'w': this.wActive = !this.wActive; break;
+      case 'g': this.gActive = !this.gActive; break;
+      case 'r': this.rActive = !this.rActive; break;
+    }
+  }
+  
   private calcLandPercentage(land: string): string {
     return (this.lands * ((parseInt(land) || 0) / this.nonLands)).toFixed(2);
   }
